@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.utils import timezone
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +26,7 @@ SECRET_KEY = 'p1e87fp__v&a(!bwf+l8dzbfcw6mg-u2-ct6usvlxn7f&0-+iu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH = True
 ALLOWED_HOSTS = []
 
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'secretaria',
     'helper',
+    'sweetify',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-PT'
 
 TIME_ZONE = 'UTC'
 
@@ -134,3 +137,5 @@ MEDIA_ROOT = '{}/media'.format(BASE_DIR)
 MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
+
+DATA_HORA_ZONA = timezone.now()
