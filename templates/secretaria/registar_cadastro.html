@@ -1,0 +1,229 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>CADASTRO</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+
+          <li><a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <div id="wizard" class="form_wizard wizard_horizontal">
+          <ul class="wizard_steps">
+            <li>
+              <a href="#step-1">
+                <span class="step_no">1</span>
+                <span class="step_descr">
+                  1 Etapa<br />
+                  <small></small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#step-2">
+                <span class="step_no">2</span>
+                <span class="step_descr">
+                  2 Etapa<br />
+                  <small></small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#step-3">
+                <span class="step_no">3</span>
+                <span class="step_descr">
+                  3 Etapa<br />
+                  <small></small>
+                </span>
+              </a>
+            </li>
+
+          </ul>
+          <form class="form-horizontal form-label-left" action="{% url 'secretaria:registar-cadastro' %}" method="post">
+            <div id="step-1">
+
+              {% csrf_token %} {% autoescape on %}
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="first-name">Nome<span class="required">*</span>
+                </label>
+                {{ form.nome }} {{ form.nome.errors }}
+
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+                <label class="control-label " for="last-name">Data de Nascimento <span class="required">*</span>
+                </label>
+                {{ form.data_nascimento }} {{ form.data_nascimento.errors }}
+
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="first-name">Provincia <span class="required">*</span>
+                </label>
+                {{ form.provincia }} {{ form.provincia.errors }}
+
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="last-name">Genero <span class="required">*</span>
+                </label>
+                {{ form.genero }} {{ form.genero.errors }}
+
+              </div>
+
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="last-name">Municipio <span class="required">*</span>
+                </label>
+                {{ form.municipio }} {{ form.municipio.errors }}
+
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="first-name">Bi Nº <span class="required">*</span>
+                </label>
+                {{ form.bi }} {{ form.bi.errors }}
+
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="first-name">Residencia<span class="required">*</span>
+                </label>
+                {{ form.residencia }} {{ form.residencia.errors }}
+
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="last-name">Telefone <span class="required">*</span>
+                </label>
+                {{ form.telefone }} {{ form.telefone.errors }}
+
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="first-name">E-mail<span class="required"></span>
+                </label>
+                {{ form.email }} {{ form.email.errors }}
+
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <label class="control-label " for="last-name">Categoria <span class="required">*</span>
+                </label>
+                {{ form.categoria }} {{ form.categoria.errors }}
+
+              </div>
+              {% endautoescape %}
+            </div>
+
+            <!-- DOCENTE -->
+            <div id="step-2">
+              <div id="cat_docente" style="display:none">
+                <h2 class="StepTitle">DADOS DO DOCENTE</h2>
+                {% autoescape on %}
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <label class="control-label " for="first-name">Nível Academico<span class="required">*</span>
+                  </label>
+                  {{ form2.nivel_academico }} {{ form2.nivel_academico.errors }}
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+                  <label class="control-label " for="last-name">Numero do Docente <span class="required">*</span>
+                  </label>
+                  {{ form2.numero_docente }} {{ form2.numero_docente.errors }}
+                </div>
+                {% endautoescape %}
+              </div>
+
+                <!-- ESTUDANTE -->
+              <div id="cat_estudante" style="display:none">
+                <h2 class="StepTitle">DADOS DO ESTUDANTE</h2>
+                {% autoescape on %}
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <label class="control-label " for="first-name">Numero de Estudante<span class="required">*</span>
+                  </label>
+                  {{ form3.numero_estudante }} {{ form3.numero_estudante.errors }}
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+                  <label class="control-label " for="last-name">Faculdade <span class="required">*</span>
+                  </label>
+                  {{ form3.faculdade }} {{ form3.faculdade.errors }}
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+                  <label class="control-label " for="last-name">Curso <span class="required">*</span>
+                  </label>
+                  {{ form3.curso }} {{ form3.curso.errors }}
+                </div>
+                {% endautoescape %}
+              </div>
+
+                <!-- FUNCIONARIO -->
+              <div id="cat_funcionario" style="display:none">
+                <h2 class="StepTitle">DADOS DO FUNCIONARIO</h2>
+                {% autoescape on %}
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <label class="control-label " for="first-name">Cargo<span class="required">*</span>
+                  </label>
+                  {{ form4.cargo }} {{ form4.cargo.errors }}
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+                  <label class="control-label " for="last-name">Nivel Academico<span class="required">*</span>
+                  </label>
+                  {{ form4.nivelacademico }} {{ form4.nivelacademico.errors }}
+                </div>
+
+                {% endautoescape %}
+              </div>
+            </div>
+
+
+              <!-- FOTO -->
+            <div id="step-3">
+              <div class="form-group">
+                <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
+                  <p>
+                    <h2 class="StepTitle">Foto</h2>
+                  </p>
+                  <div class=" well" style="overflow: auto">
+                    <div class="col-md-4">
+                      <div class="pull-left" id="camera_civel">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pull-right">
+                      <div class="pull-right" id="fotoCivel">
+
+                      </div>
+                    </div>
+                    <div class="">
+                      {{ form.foto }}
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                      <button type="button" class=" preview_snapshot btn btn-primary" id="pre_take_buttons">FOTO</button>
+                      <button type="button" class="save_photo btn btn-success" id="salvar_foto" style="display:none">SALVAR </button>
+                      <button type="button" class="cancel_preview btn btn-warning" id="post_take_buttons" style="display:none">Nova Foto</button>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+
+                <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
+                  <button type="submit" class="btn btn-success" id="" >SALVAR DADOS</button>
+                </div>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
