@@ -57,7 +57,7 @@ function validar_provinciaBi(){
 
     $.ajax({
 
-        url:  '/secretaria/municipio_retorna',
+        url:  '/secretaria/municipio_retorna/',
         type:  'POST',
         data: JSON.stringify({'provincia': $('#id_provincia').val()}),
         dataType:  'json',

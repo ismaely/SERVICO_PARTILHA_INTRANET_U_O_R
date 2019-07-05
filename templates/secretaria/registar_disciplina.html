@@ -3,35 +3,42 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Registar Disciplina</h2>
+        <h2>Registar Disciplina Lecionadas</h2>
 
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'secretaria:registar-disciplina' %}" method="post">
           {% csrf_token %} {% autoescape on %}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nome<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+              {{ form.nome }} {{ form.nome.errors }}
             </div>
           </div>
 
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sigla<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nivel Académico<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+              {{ form.ano_academico }} {{ form.ano_academico.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Semestre<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.semestre }} {{ form.semestre.errors }}
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Carga Horaria<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+              {{ form.carga_horaria }} {{ form.carga_horaria.errors }}
             </div>
           </div>
 

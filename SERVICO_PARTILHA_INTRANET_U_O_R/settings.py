@@ -125,6 +125,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# possible options: 'sweetalert', 'sweetalert2' - default is 'sweetalert2'
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -139,3 +142,5 @@ LOGIN_REDIRECT_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
 
 DATA_HORA_ZONA = timezone.now()
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']

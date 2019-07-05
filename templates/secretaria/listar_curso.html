@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+
+           <!-- /top navigation -->
+
+           <!-- page content -->
+
+<div class="row">
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Lista de Cursos Lecionados<small> </small></h2>
+
+        <div class="clearfix"></div>
+      </div>
+
+
+      <div class="x_content">
+        <table id="example" class="table table-striped responsive-utilities jambo_table">
+          <thead>
+            <tr class="headings">
+
+              <th>
+                <input type="checkbox" class="tableflat">
+              </th>
+              <th>Nª</th>
+              <th>Nome</th>
+              <th>Sigla</th>
+              <th>Anos</th>
+              <th class=" no-link last"><span class="nobr">Opções</span>
+              </th>
+            </tr>
+          </thead>
+
+
+          <tbody>
+
+            {% for dados in lista %}
+            <tr class="even pointer">
+
+              <td class="a-center ">
+                <input type="checkbox" class="tableflat">
+              </td>
+              <td class=" "> {{ dados.id }}</td>
+              <td class=" ">{{ dados.nome }}</td>
+              <td class=" ">{{ dados.sigla_curso }}</td>
+              <td class=" ">{{ dados.duracao }}</td>
+              <td class=" last">
+
+                <div class="col-md-12  btn-group">
+                  <button data-toggle="dropdown" class="col-md-12 btn btn-primary dropdown-toggle" type="button"> OPÇÕES <span class="caret"></span> </button>
+                  <ul class="dropdown-menu">
+                    <li><a href=">" class="btn btn-danger">ELIMINAR</a>
+                    </li>
+                    <li><a href="" class="btn btn-success">ATUALIZAR</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+</div>
+</div>
+
+{% endblock %}

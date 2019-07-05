@@ -22,9 +22,11 @@
     <link href="{% static 'css/maps/jquery-jvectormap-2.0.1.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'css/icheck/flat/green.css' %}" rel="stylesheet" />
     <link href="{% static 'css/floatexamples.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/icheck/flat/green.css' %}" rel="stylesheet">
+    <link href="{% static 'css/datatables/tools/css/dataTables.tableTools.css' %}" rel="stylesheet">
 
     <script src="{% static 'kanguitu/jquery/jquery.min.js' %}"></script>
-
+    <link rel="shortcut icon" href="{% static '/images/uor.png' %}">
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -40,10 +42,7 @@
 
 
 <body class="nav-md">
-
     <div class="container body">
-
-
         <div class="main_container">
 
             <div class="col-md-3 left_col">
@@ -80,19 +79,22 @@
                                         <li><a href="{% url 'secretaria:registar-cursos' %}">Registar Curso</a>
                                         </li>
 
-                                        <li><a href="{% url 'secretaria:orientador-tese' %}">Registar Professor para Orientar Tese </a>
+                                        <li><a href="{% url 'secretaria:registar-orientador-tese' %}">Registar Professor para Orientar Tese </a>
                                         </li>
                                         <li><a href="{% url 'secretaria:registar-tema-monografia' %}">Registar Tema Para Monografia</a>
                                         </li>
-                                        <li><a href="{% url 'secretaria:registar-nota-aluno' %}">Registar Nota do Aluno</a>
-                                        </li>
-                                        <li><a href="{% url 'secretaria:registar-solicitacao-monografia' %}">Solicitar Tema Para Monografia</a>
+
+                                        <li><a href="{% url 'secretaria:registar-solicitacao-monografia' %}">Proposta do Tema Para Monografia</a>
                                         </li>
                                         <li><a href="{% url 'secretaria:registar-reclamacao' %}">Registar Reclamação / Queixa</a>
+                                        </li>
+                                        <li><a href="{% url 'secretaria:registar-nota-aluno' %}">Registar Nota do Aluno</a>
                                         </li>
                                         <li><a href="{% url 'secretaria:registar-trabalho-fim_curso' %}">Registar Trabalho de Fim do Curso</a>
                                         </li>
                                         <li><a href="{% url 'secretaria:registar-defesa-final' %}">Registar Defesa Final do curso do Aluno</a>
+                                        </li>
+                                        <li><a href="#">Definir as Desciplina do Curso</a>
                                         </li>
 
                                     </ul>
@@ -128,18 +130,34 @@
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> Informação/Forum<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="form.html">Listar Reclamação</a>
+                                      <li><a href="{% url 'secretaria:lista-estudante' %}">Listar Estudante</a>
+                                      </li>
+                                      <li><a href="{% url 'secretaria:lista-curso' %}">Listar os Cursos</a>
+                                      </li>
+                                      <li><a href="{% url 'secretaria:lista-disciplina' %}">Listar os Disciplina</a>
+                                      </li>
+                                        <li><a href="{% url 'secretaria:listar-reclamacao' %}">Listar Reclamação</a>
                                         </li>
-                                        <li><a href="form_advanced.html">Listar Professor para Orientação de Tese</a>
+                                        <li><a href="{% url 'secretaria:listar-orientador' %}">Listar Professor para Orientação de Tese</a>
                                         </li>
-                                        <li><a href="form_validation.html">Listar Temas de Tese</a>
+
+                                        <li><a href="{% url 'secretaria:listar-tema' %}">Listar Temas de Tese</a>
                                         </li>
                                         <li><a href="form_wizards.html">Listar Solicitar Tema Para Monografia</a>
                                         </li>
                                         <li><a href="form_upload.html">Listar Alunos Para Defesa do Fim de Curso</a>
                                         </li>
-                                        <li><a href="form_buttons.html">Form Buttons</a>
+
+                                    </ul>
+                                </li>
+
+                                <li><a><i class="fa fa-user"></i> Utilizador<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="tables.html">Criar Conta</a>
                                         </li>
+                                        <li><a href="tables.html">Listar Uilizador</a>
+                                        </li>
+
                                     </ul>
                                 </li>
 
@@ -178,8 +196,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-
 
                         </ul>
                     </nav>
@@ -238,7 +254,7 @@
 
                             <div class="row x_title">
                                 <div class="col-md-6">
-                                    <h3>Serviços  Academicos<small> </small></h3>
+                                    <h3>Serviços  Acadêmicos<small> </small></h3>
                                 </div>
 
                             </div>
@@ -287,8 +303,10 @@
     <script type="text/javascript" src="{% static 'js/flot/jquery.flot.time.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/flot/date.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/wizard/jquery.smartWizard.js' %}"></script>
-    <script src="{% static 'js/maskedinput/jquery.maskedinput.min.js'%}"></script>
-    <script src="{% static 'js/tags/jquery.tagsinput.min.js'%}"></script>
+    <script src="{% static 'js/maskedinput/jquery.maskedinput.min.js' %}"></script>
+    <script src="{% static 'js/tags/jquery.tagsinput.min.js' %}"></script>
+    <script src="{% static 'js/datatables/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'js/datatables/tools/js/dataTables.tableTools.js' %}"></script>
 
     <script src="{% static 'js/input_mask/jquery.inputmask.js' %}"></script>
     <script src="{% static 'kanguitu/sweetalert2.js' %}"></script>
@@ -327,7 +345,60 @@
             });
 
         });
+
+        $(function() {
+           $('input').keyup(function() {
+        this.value = this.value.toLocaleUpperCase();
+              });
+         });
+
     </script>
+    <script>
+           $(document).ready(function () {
+               $('input.tableflat').iCheck({
+                   checkboxClass: 'icheckbox_flat-green',
+                   radioClass: 'iradio_flat-green'
+               });
+           });
+
+           var asInitVals = new Array();
+           $(document).ready(function () {
+               var oTable = $('#example').dataTable({
+                   "oLanguage": {
+                       "sSearch": "Busca:"
+                   },
+                   "aoColumnDefs": [
+                       {
+                           'bSortable': false,
+                           'aTargets': [0]
+                       } //disables sorting for column one
+                        ],
+                   'iDisplayLength': 12,
+                   "sPaginationType": "full_numbers",
+                   "dom": 'T<"clear">lfrtip',
+
+               });
+               $("tfoot input").keyup(function () {
+                   /* Filter on the column based on the index of this element's parent <th> */
+                   oTable.fnFilter(this.value, $("tfoot th").index($(this).parent()));
+               });
+               $("tfoot input").each(function (i) {
+                   asInitVals[i] = this.value;
+               });
+               $("tfoot input").focus(function () {
+                   if (this.className == "search_init") {
+                       this.className = "";
+                       this.value = "";
+                   }
+               });
+               $("tfoot input").blur(function (i) {
+                   if (this.value == "") {
+                       this.className = "search_init";
+                       this.value = asInitVals[$("tfoot input").index(this)];
+                   }
+               });
+           });
+       </script>
     <script>
            function onAddTag(tag) {
                alert("Os numeros do estudante: " + tag);

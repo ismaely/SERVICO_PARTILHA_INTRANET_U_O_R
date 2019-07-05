@@ -1,10 +1,29 @@
 
 # ficheiro de opçoes de escolha de formulario e modelo
 
-
 SIMESTRE = (
-    ('1ºSimestre', '1ºSimestre'),
+    ('I Simestre', 'I Simestre'),
+    ('II Simestre', 'II Simestre'),
+    ('III Simestre', 'III Simestre'),
+    ('IV Simestre', 'IV Simestre'),
+    ('VI Simestre', 'VI Simestre'),
+    ('VII Simestre', 'VII Simestre'),
+    ('VIII Simestre', 'VIII Simestre'),
+    ('IX Simestre', 'IX Simestre'),
+    ('ANUAL', 'ANUAL'),
 )
+
+
+
+ANO_ACADEMICO = (
+    ('1º ANO', '1º ANO'),
+    ('2º ANO', '2º ANO'),
+    ('3º ANO', '3º ANO'),
+    ('4º ANO', '4º ANO'),
+    ('5º ANO', '5º ANO'),
+)
+
+
 
 INDIVIAL_GRUPO = (
     ('INDIVIDUAL', 'INDIVIDUAL'),

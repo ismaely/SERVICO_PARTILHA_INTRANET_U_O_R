@@ -9,28 +9,28 @@
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form id=""  class="form-horizontal form-label-left" action="{% url 'secretaria:registar-tema-monografia' %}" method="post">
           {% csrf_token %} {% autoescape on %}
 
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tema<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+              {{ form.tema }} {{ form.tema.errors }}
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Curso<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+            {{ form.curso }} {{ form.curso.errors }}
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Individual / Grupo<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+              {{ form.opcao }} {{ form.opcao.errors }}
             </div>
           </div>
 
@@ -38,20 +38,13 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Número de Alunos <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+            {{ form.numero_alunos }} {{ form.numero_alunos.errors }}
             </div>
           </div>
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data Incial</label>
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data Final</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+              {{ form.data_entrada }} {{ form.data_entrada.errors }}
             </div>
           </div>
 
