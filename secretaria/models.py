@@ -20,7 +20,7 @@ class Pessoa(models.Model):
         return self.id
 
 
-
+ 
 
 class Aluno(models.Model):
     pessoa= models.ForeignKey(Pessoa, on_delete=models.CASCADE, parent_link=True)
@@ -97,6 +97,7 @@ class Orientador(models.Model):
 
 class Nota(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, parent_link=True)
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE, parent_link=True)
     disciplina= models.ForeignKey(Disciplina, on_delete=models.CASCADE, parent_link=True)
     data_realizada = models.CharField(max_length=20, null=True, default="")
     data_lancamento = models.CharField(max_length=20, null=True, default="automatico")
@@ -147,7 +148,7 @@ class Defesa_Monografia(models.Model):
         return self.id
 
 
-
+# modelo Reclamação
 class Reclamacao(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, parent_link=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, parent_link=True)

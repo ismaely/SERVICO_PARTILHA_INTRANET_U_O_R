@@ -23,6 +23,9 @@ from helper.opcoes_escolha import (GENERO, PROVINCIA, NIVEL_DOCENTE, NIVEL_FUNCI
 from secretaria.models import (Pessoa, Aluno, Docente, Funcionario, Curso, Disciplina, Orientador, Tema, Reclamacao)
 from secretaria.forms import (AlunoForm, DocenteForm, PessoaForm, DocenteForm, FuncionarioForm, CursoForm, DisciplinaForm, ReclamacaoForm, Orientador_TeseForm, TemasForm)
 
+# Biblioteca
+from biblioteca.models import Livro
+from biblioteca.forms import Livro_Form
 
 
 # constante do Rodape das menssagem

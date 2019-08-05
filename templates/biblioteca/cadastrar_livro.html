@@ -3,57 +3,59 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Proposta de Tema Para Monografia</h2>
+        <h2>Cadastrar Livro</h2>
 
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2"  class="form-horizontal form-label-left" action="{% url 'secretaria:registar-solicitacao-monografia' %}" method="post">
+        <form id="demo-form2"  class="form-horizontal form-label-left" action="{% url 'biblioteca:cadastrar-livro' %}" method="post">
           {% csrf_token %} {% autoescape on %}
-
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Número do Aluno / Nº BI<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nome do Autor<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.aluno }} {{ form.aluno.errors }}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tema Proposto<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.tema }} {{ form.tema.errors }}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Curso<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              {{ form.curso }} {{ form.curso.errors }}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Individual / Grupo<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              {{ form.opcao }} {{ form.opcao.errors }}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Data de Entrada<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              {{ form.data_entrada }} {{ form.data_entrada.errors }}
+            {{ form.autor }} {{ form.autor.errors }}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Descrição</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Titulo do Livro<span class="required">*</span>
+            </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.descricao }} {{ form.descricao.errors }}
+            {{ form.titulo }} {{ form.titulo.errors }}
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Categoria<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            {{ form.nome }} {{ form.nome.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Número de Pagina<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            {{ form.numero_pagina }} {{ form.numero_pagina.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ISBN<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            {{ form.isbn }} {{ form.isbn.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Data de Entrada<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            {{ form.data_entrada }} {{ form.data_entrada.errors }}
+            </div>
+          </div>
+
 
           <div class="ln_solid"></div>
           <div class="form-group">

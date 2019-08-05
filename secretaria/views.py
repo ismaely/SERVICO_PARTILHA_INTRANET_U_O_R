@@ -1,5 +1,6 @@
 
 from helper.includes import *
+from django.db.models import Q
 #from django.views.generic import ListView, DeleteView, DetailView
 
 
@@ -15,9 +16,26 @@ def login(request):
     return render (request, 'homes/login.html', context)
 
 
+def aprovar_proposta_tema(request, pk):
+    try:
+        resp = Tema.objects.get(id=pk)
+        resp.situacao = 'Proposta-Aprovada'
+        resp.save()
+    except Aluno.DoesNotExist:
+        sweetify.error(request,'O Erro não foi possivel!....', timer='4900', persistent='OK', footer=SOFIL_WEB)
+    return HttpResponseRedirect(reverse('secretaria:listar-proposta'))
+
+
+
+def listar_solicitacao_tema_proposta(request):
+    lista = Tema.objects.select_related().filter(Q(situacao__startswith='Proposta-Aprovada') | Q(situacao__startswith='Proposta'))
+    context = {'lista': lista}
+    return render (request, 'secretaria/listar_tema_proposta.html', context)
+
+
 
 def listar_temas_tese(request):
-    lista = Tema.objects.select_related('curso').all().order_by('-curso')
+    lista = Tema.objects.select_related('curso').filter(situacao='Aprovado').all().order_by('-curso')
     context = {'lista': lista}
     return render (request, 'secretaria/listar_temas_tese.html', context)
 
@@ -80,12 +98,12 @@ def registar_defesa_final_curso_aluno(request):
 
 def registar_solicitacao_tema_monografia(request):
     form = TemasForm(request.POST or None)
-
     if request.method == "POST":
         id = helper.core.retorna_id(request)
         if form.is_valid() and id > 0:
             resp = form.save(commit=False)
             resp.aluno_id = id
+            resp.situacao = "Proposta"
             resp.save()
             sweetify.success(request,'Solicitação do tema enviado com sucesso!....', timer='4900', button='Ok', footer=SOFIL_WEB)
             return HttpResponseRedirect(reverse('secretaria:home-kanguitu'))

@@ -4,7 +4,7 @@ import base64
 import sweetify
 from secretaria.models import (Pessoa, Aluno, Docente, Funcionario, Curso, Disciplina, Orientador, Tema, Reclamacao)
 
-
+SOFIL_WEB = '<a href>SOFIL-WEB</a>'
 
 # função que vai prepara a foto
 def prepara_foto(request):
@@ -25,16 +25,22 @@ def prepara_foto(request):
 
 #função que vai retorna o id do aluno ou pessoa em função do bi o numero de estudante
 def retorna_id(request):
-   try:
-      value =request.POST['numero_alunos']
-      bi = Pessoa.objects.get(bi=value)
-      if bi.id is not None:
-         lu = Aluno.objects.get(id=bi.id)
-         return lu.id
-   except Pessoa.DoesNotExist:
-       try:
-          alu = Aluno.objects.get(numero_estudante=value)
-          return alu.id
-       except Aluno.DoesNotExist:
-          sweetify.success(request,'O Numero de Estudante não é valido!....', timer='4900', button='Ok', footer=SOFIL_WEB)
-          return 0
+    try:
+        lu = dict()
+        value =request.POST['aluno']
+        bi = Pessoa.objects.get(bi=value)
+        if bi.id is not None:
+            try:
+                lu = Aluno.objects.get(pessoa_id=bi.id)
+                if lu.id is not None:
+                    return lu.id
+            except Aluno.DoesNotExist:
+                sweetify.error(request,'O Numero do Aluno não é valido!....', timer='4900', button='Ok', footer=SOFIL_WEB)
+                return 0
+    except Pessoa.DoesNotExist:
+        try:
+            alu = Aluno.objects.get(numero_estudante=value)
+            return alu.id
+        except Aluno.DoesNotExist:
+            sweetify.error(request,'O Numero de Aluno não é valido!....', timer='4900', button='Ok', footer=SOFIL_WEB)
+            return 0

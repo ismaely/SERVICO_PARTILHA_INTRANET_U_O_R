@@ -106,15 +106,15 @@ class Orientador_TeseForm(ModelForm):
 
 
 class TemasForm(ModelForm):
-    numero_alunos = forms.CharField(max_length=14, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    aluno = forms.CharField(max_length=14, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    numero_alunos = forms.CharField(max_length=3, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
     descricao = forms.CharField(max_length=1500, required=False, widget=forms.Textarea(attrs={'class': 'form-control', 'id':'message'}))
     class Meta:
         model = Tema
-        fields = ('curso', 'aluno', 'numero_alunos', 'tema', 'opcao', 'data_entrada', 'situacao', 'descricao')
+        fields = ('curso', 'numero_alunos', 'tema', 'opcao', 'data_entrada', 'situacao', 'descricao')
         widgets = {
             'curso': forms.Select(attrs={'class': 'form-control'}),
             'tema': forms.TextInput(attrs={'class': 'form-control'}),
             'opcao': forms.Select(attrs={'class': 'form-control'}),
-            'aluno': forms.TextInput(attrs={'class': 'form-control'}),
             'data_entrada': forms.TextInput(attrs={'type':'date', 'class': 'form-control'}),
         }

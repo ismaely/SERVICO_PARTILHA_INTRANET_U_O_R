@@ -1,9 +1,5 @@
 {% extends 'base.html' %} {% block corpo%} {% load static %}
 
-           <!-- /top navigation -->
-
-           <!-- page content -->
-
 <div class="row">
 
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -20,9 +16,7 @@
           <thead>
             <tr class="headings">
 
-              <th>
-                <input type="checkbox" class="tableflat">
-              </th>
+
               <th>Nª</th>
               <th>Nome</th>
               <th>Sigla</th>
@@ -38,9 +32,7 @@
             {% for dados in lista %}
             <tr class="even pointer">
 
-              <td class="a-center ">
-                <input type="checkbox" class="tableflat">
-              </td>
+              
               <td class=" "> {{ dados.id }}</td>
               <td class=" ">{{ dados.nome }}</td>
               <td class=" ">{{ dados.sigla_curso }}</td>

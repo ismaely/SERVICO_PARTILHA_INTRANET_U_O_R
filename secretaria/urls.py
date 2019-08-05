@@ -23,5 +23,7 @@ urlpatterns = [
     path('listar_reclamacao/', views.listar_reclamacao, name='listar-reclamacao'),
     path('listar_professor_orientador/', views.listar_professor_orientador, name='listar-orientador'),
     path('listar_temas_tese/', views.listar_temas_tese, name='listar-tema'),
+    path('listar_tema_proposta/', views.listar_solicitacao_tema_proposta, name='listar-proposta'),
+    path('aprovar_proposta_tema/<int:pk>/', views.aprovar_proposta_tema, name='aprovar-proposta-tema'),
 
 ]

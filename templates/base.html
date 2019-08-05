@@ -84,7 +84,7 @@
                                         <li><a href="{% url 'secretaria:registar-tema-monografia' %}">Registar Tema Para Monografia</a>
                                         </li>
 
-                                        <li><a href="{% url 'secretaria:registar-solicitacao-monografia' %}">Proposta do Tema Para Monografia</a>
+                                        <li><a href="{% url 'secretaria:registar-solicitacao-monografia' %}"> Registar Proposta do Tema Para Monografia</a>
                                         </li>
                                         <li><a href="{% url 'secretaria:registar-reclamacao' %}">Registar Reclamação / Queixa</a>
                                         </li>
@@ -102,15 +102,15 @@
 
                                 <li><a><i class="fa fa-desktop"></i> Biblioteca<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="general_elements.html">Registar Obra</a>
+                                        <li><a href="{% url 'biblioteca:cadastrar-livro' %}">Cadastrar Livro</a>
                                         </li>
-                                        <li><a href="glyphicons.html">Registar Solicitação de Obras</a>
+                                        <li><a href="glyphicons.html">Registar Solicitação de Livro</a>
                                         </li>
                                         <li><a href="media_gallery.html">Efectuar Consulta</a>
                                         </li>
-                                        <li><a href="typography.html"> Listar as Obras</a>
+                                        <li><a href="{% url 'biblioteca:listar-livro' %}"> Listar Livros</a>
                                         </li>
-                                        <li><a href="icons.html"> Listar Solicitação de Obras</a>
+                                        <li><a href="icons.html"> Listar Solicitação de Livros</a>
                                         </li>
 
                                     </ul>
@@ -143,7 +143,7 @@
 
                                         <li><a href="{% url 'secretaria:listar-tema' %}">Listar Temas de Tese</a>
                                         </li>
-                                        <li><a href="form_wizards.html">Listar Solicitar Tema Para Monografia</a>
+                                        <li><a href="{% url 'secretaria:listar-proposta' %}">Listar Propostas de Monografia</a>
                                         </li>
                                         <li><a href="form_upload.html">Listar Alunos Para Defesa do Fim de Curso</a>
                                         </li>
