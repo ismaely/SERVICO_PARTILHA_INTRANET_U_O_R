@@ -5,7 +5,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Lista de Alunos<small> </small></h2>
+        <h2>Lista de Alunos Matriculado<small> </small></h2>
 
         <div class="clearfix"></div>
       </div>
@@ -18,9 +18,10 @@
 
               <th>Nome Completo </th>
               <th>Genero</th>
-              <th>Provincia</th>
-              <th>Faculdade</th>
+              <th>Ano</th>
+              <th>Opção</th>
               <th>Curso</th>
+              <th>Periodo</th>
               <th>Nº Estudante</th>
               <th class=" no-link last"><span class="nobr">Opções</span>
               </th>
@@ -33,26 +34,48 @@
             {% for dados in lista %}
             <tr class="even pointer">
 
-              <td class=" "> {{ dados.pessoa.nome|upper }}</td>
-              <td class=" ">{{ dados.pessoa.genero|upper }}</td>
-              <td class=" ">{{ dados.pessoa.provincia|upper }}</td>
-              <td class=" ">{{ dados.faculdade|upper }}</td>
-              <td class=" ">{{ dados.curso|upper }}</td>
-              <td class=" ">{{ dados.numero_estudante }}</td>
+              <td class=" "> {{ dados.aluno.pessoa.nome }}</td>
+              <td class=" ">{{ dados.aluno.pessoa.genero|truncatechars:2 }}</td>
+              <td class=" ">{{ dados.ano.nome }}</td>
+              <td class=" ">{{ dados.opcao_matricula.nome }}</td>
+              <td class=" ">{{ dados.curso|upper|truncatechars:20 }}</td>
+              <td class=" ">{{ dados.periodo }}</td>
+              <td class=" ">{{ dados.aluno.numero_estudante }}</td>
               <td class=" last">
 
                 <div class="col-md-12  btn-group">
                   <button data-toggle="dropdown" class="col-md-12 btn btn-primary dropdown-toggle" type="button"> OPÇÕES <span class="caret"></span> </button>
                   <ul class="dropdown-menu">
-                    <li><a href=">" class="btn btn-danger">ELIMINAR</a>
+                    <li><a class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg">ELIMINAR</a>
                     </li>
-                    <li><a href="" class="btn btn-success">ATUALIZAR</a>
+                    <li><a href="{% url 'secretaria:editar-matricula' dados.id %}" class="btn btn-success">ATUALIZAR</a>
                     </li>
 
                   </ul>
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content ">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body alert alert-danger">
+                          <h4> Aviso.....!</h4>
+                          <p>Deseja Eliminar os dados da Matricula...?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </td>
             </tr>
+
             {% endfor %}
 
 

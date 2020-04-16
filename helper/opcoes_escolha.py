@@ -1,26 +1,50 @@
 
 # ficheiro de opçoes de escolha de formulario e modelo
 
-SIMESTRE = (
-    ('I Simestre', 'I Simestre'),
-    ('II Simestre', 'II Simestre'),
-    ('III Simestre', 'III Simestre'),
-    ('IV Simestre', 'IV Simestre'),
-    ('VI Simestre', 'VI Simestre'),
-    ('VII Simestre', 'VII Simestre'),
-    ('VIII Simestre', 'VIII Simestre'),
-    ('IX Simestre', 'IX Simestre'),
-    ('ANUAL', 'ANUAL'),
+PERIODO_MATRICULA = (
+    ('Manhã', 'Manhã'),
+    ('Tarde', 'Tarde'),
+    ('Noite', 'Noite'),
+
+)
+
+PERIODO_MATRICULA2 = (
+    ('', '--------'),
+    ('Manhã', 'Manhã'),
+    ('Tarde', 'Tarde'),
+    ('Noite', 'Noite'),
+
 )
 
 
 
-ANO_ACADEMICO = (
-    ('1º ANO', '1º ANO'),
-    ('2º ANO', '2º ANO'),
-    ('3º ANO', '3º ANO'),
-    ('4º ANO', '4º ANO'),
-    ('5º ANO', '5º ANO'),
+TIPOLOGIA =(
+    ('Declarações', 'Declarações'),
+    ('Plano de Trabalho', 'Plano de Trabalho'),
+    ('Propostas', 'Propostas'),
+    ('Relatórios', 'Relatórios'),
+    ('Ata de Reunião', 'Ata de Reunião'),
+    ('Decreto', 'Decreto'),
+    ('Contrato', 'Contrato'),
+    ('Ofício', 'Ofício'),
+    ('Jornal Cientifico', 'Jornal Cientifico'),
+    ('Diversos', 'Diversos'),
+)
+
+PARTILHA_ARQUIVO =(
+    ('APENAS DOCENTE', 'APENAS DOCENTE'),
+    ('APENAS ESTUDANTE', 'APENAS ESTUDANTE'),
+    ('TODOS', 'TODOS'),
+    ('NÃO', 'NÃO'),
+)
+
+
+CATEGORIA_UTILIZADOR =(
+    ('estudante', 'estudante'),
+    ('gestor', 'Gestor'),
+    ('gerente', 'Gerente'),
+    ('admin', 'Admin'),
+
 )
 
 
@@ -36,6 +60,20 @@ GENERO = (
     ('Femenino', 'Femenino'),
 )
 
+ESTADO_CIVIL = (
+    ('Solteiro (a)', 'solteiro (a)'),
+    ('Casado (a)', 'casado (a)'),
+    ('Divorciado (a)', 'Divorciado (a)'),
+)
+
+DIFICIENCIA = (
+    ('', ''),
+    ('Sim', 'Sim'),
+    ('Não', 'Não'),
+)
+
+
+
 MOTIVO_RECLAMACAO = (
     ('Falta Nota', 'Falta Nota'),
     ('Nota Não Lançada', 'Nota Não Lançada'),
@@ -44,6 +82,8 @@ MOTIVO_RECLAMACAO = (
     ('Acedio Sexual', 'Acedio Sexual'),
     ('Curropção', 'Curropção'),
 )
+
+MESES=('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro')
 
 
 
@@ -71,8 +111,8 @@ PROVINCIA = (
 
 
 CATEGORIA = (
-    ('DOCENTE', 'DOCENTE'),
     ('ESTUDANTE', 'ESTUDANTE'),
+    ('DOCENTE', 'DOCENTE'),
     ('FUNCIONARIO', 'FUNCIONARIO'),
 
 )

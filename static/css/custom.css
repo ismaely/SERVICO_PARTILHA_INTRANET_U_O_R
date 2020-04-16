@@ -1,3 +1,9 @@
+body.folha {
+    background-image: url("/static/images/folha.png");
+    background-size: 100%;
+    background-repeat: no-repeat, repeat-x;
+}
+
 body.nav-sm .container.body .left_col {
     width: 70px;
     padding: 0;

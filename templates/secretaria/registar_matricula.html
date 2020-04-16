@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Registar Matricula</h2>
+
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        {% if edita %}
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'secretaria:editar-matricula' edita %}" method="post">
+          {% else %}
+          <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'secretaria:registar-matricula' %}" method="post">
+            {% endif %} {% csrf_token %} {% autoescape on %}
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nº Estudante / Nº B.I<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.aluno }} {{ form.aluno.errors }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Curso<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.curso }} {{ form.curso.errors }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Opção de Matricula<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.opcao_matricula }} {{ form.opcao_matricula.errors }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Ano de Frequencia</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.ano }} {{ form.ano.errors }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Semestre</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.semestre }} {{ form.semestre.errors }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Periodo</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.periodo }} {{ form.periodo.errors }}
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.data }} {{ form.data.errors }}
+              </div>
+            </div>
+
+            <div class="form-group nota_exame_ajax" id="nota_exame_ajax">
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Nota Final do Exame de Acesso</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.nota_exame }} {{ form.nota_exame.errors }}
+              </div>
+            </div>
+
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-5">
+                <button type="reset" class="btn btn-primary">CANCELAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
+              </div>
+            </div>
+            {% endautoescape %}
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

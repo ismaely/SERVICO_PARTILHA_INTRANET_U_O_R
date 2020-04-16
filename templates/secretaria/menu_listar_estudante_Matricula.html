@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Menu de Listagem de Estudantes Matriculado</h2>
+
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'informacao_forum:lista-estudante' %}" method="post">
+          {% csrf_token %} {% autoescape on %}
+
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Curso<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.curso }} {{ form.curso.errors }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">Opção de Matricula<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.opcao_matricula }} {{ form.opcao_matricula.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Ano de Frequencia</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.ano_frequencia }} {{ form.ano_frequencia.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Periodo</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.periodo }} {{ form.periodo.errors }}
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data Incial</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.data }} {{ form.data.errors }}
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data Final</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.data_final }} {{ form.data_final.errors }}
+            </div>
+
+          </div>
+
+
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-5">
+              <button type="submit" class="btn btn-success">LISTAR</button>
+            </div>
+          </div>
+          {% endautoescape %}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

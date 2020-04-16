@@ -50,66 +50,78 @@
             <div id="step-1">
 
               {% csrf_token %} {% autoescape on %}
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="first-name">Nome<span class="required">*</span>
                 </label>
                 {{ form.nome }} {{ form.nome.errors }}
 
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                <label class="control-label " for="first-name">Nome do Pai<span class="required">*</span>
+                </label>
+                {{ form.nome_pai }} {{ form.nome_pai.errors }}
+
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                <label class="control-label " for="first-name">Nome da Maẽ<span class="required">*</span>
+                </label>
+                {{ form.nome_mae }} {{ form.nome_mae.errors }}
+
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group ">
                 <label class="control-label " for="last-name">Data de Nascimento <span class="required">*</span>
                 </label>
                 {{ form.data_nascimento }} {{ form.data_nascimento.errors }}
 
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="first-name">Provincia <span class="required">*</span>
                 </label>
                 {{ form.provincia }} {{ form.provincia.errors }}
 
               </div>
 
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="last-name">Genero <span class="required">*</span>
                 </label>
                 {{ form.genero }} {{ form.genero.errors }}
 
               </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                <label class="control-label " for="last-name">Estado Civil <span class="required">*</span>
+                </label>
+                {{ form.estado_civil }} {{ form.estado_civil.errors }}
+
+              </div>
 
 
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="last-name">Municipio <span class="required">*</span>
                 </label>
                 {{ form.municipio }} {{ form.municipio.errors }}
 
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="first-name">Bi Nº <span class="required">*</span>
                 </label>
                 {{ form.bi }} {{ form.bi.errors }}
 
               </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                <label class="control-label " for="first-name">Passaporte Nº <span class="required">*</span>
+                </label>
+                {{ form.passaporte }} {{ form.passaporte.errors }}
 
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="first-name">Residencia<span class="required">*</span>
                 </label>
                 {{ form.residencia }} {{ form.residencia.errors }}
 
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                <label class="control-label " for="last-name">Telefone <span class="required">*</span>
-                </label>
-                {{ form.telefone }} {{ form.telefone.errors }}
 
-              </div>
 
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                <label class="control-label " for="first-name">E-mail<span class="required"></span>
-                </label>
-                {{ form.email }} {{ form.email.errors }}
-
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+              <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                 <label class="control-label " for="last-name">Categoria <span class="required">*</span>
                 </label>
                 {{ form.categoria }} {{ form.categoria.errors }}
@@ -136,29 +148,51 @@
                 {% endautoescape %}
               </div>
 
-                <!-- ESTUDANTE -->
+              <!-- ESTUDANTE -->
               <div id="cat_estudante" style="display:none">
                 <h2 class="StepTitle">DADOS DO ESTUDANTE</h2>
                 {% autoescape on %}
-                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                  <label class="control-label " for="first-name">Bairro<span class="required">*</span>
+                  </label>
+                  {{ form.bairro }} {{ form.bairro.errors }}
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                  <label class="control-label " for="last-name">Telefone <span class="required">*</span>
+                  </label>
+                  {{ form.telefone }} {{ form.telefone.errors }}
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                  <label class="control-label " for="first-name">E-mail<span class="required"></span>
+                  </label>
+                  {{ form.email }} {{ form.email.errors }}
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
+                  <label class="control-label " for="first-name">É Portador de Dificência?<span class="required"></span>
+                  </label>
+                  {{ form.dificiencia }} {{ form.dificiencia.errors }}
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback" id="especifica_dificiencia_id" style="display:none">
+                  <label class="control-label " for="first-name">Especifica a Dificência Fisica<span class="required"></span>
+                  </label>
+                  {{ form.especifica_dificiencia }} {{ form.especifica_dificiencia.errors }}
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6 form-group has-feedback">
                   <label class="control-label " for="first-name">Numero de Estudante<span class="required">*</span>
                   </label>
                   {{ form3.numero_estudante }} {{ form3.numero_estudante.errors }}
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
-                  <label class="control-label " for="last-name">Faculdade <span class="required">*</span>
-                  </label>
-                  {{ form3.faculdade }} {{ form3.faculdade.errors }}
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 form-group ">
-                  <label class="control-label " for="last-name">Curso <span class="required">*</span>
-                  </label>
-                  {{ form3.curso }} {{ form3.curso.errors }}
-                </div>
+
                 {% endautoescape %}
               </div>
 
-                <!-- FUNCIONARIO -->
+              <!-- FUNCIONARIO -->
               <div id="cat_funcionario" style="display:none">
                 <h2 class="StepTitle">DADOS DO FUNCIONARIO</h2>
                 {% autoescape on %}
@@ -178,7 +212,7 @@
             </div>
 
 
-              <!-- FOTO -->
+            <!-- FOTO -->
             <div id="step-3">
               <div class="form-group">
                 <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
@@ -214,9 +248,9 @@
               </div>
 
 
-                <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
-                  <button type="submit" class="btn btn-success" id="" >SALVAR DADOS</button>
-                </div>
+              <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
+                <button type="submit" class="btn btn-success" id="">SALVAR DADOS</button>
+              </div>
 
             </div>
           </form>

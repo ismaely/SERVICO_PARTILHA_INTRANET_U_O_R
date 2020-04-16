@@ -9,32 +9,60 @@
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'secretaria:registar-nota-aluno' %}" method="post">
           {% csrf_token %} {% autoescape on %}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Número do Estudante<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Número do Estudante <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+              {{ form.aluno }} {{ form.aluno.errors }}
             </div>
           </div>
-
-
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Disciplina<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Curso <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+              {{ form.curso }} {{ form.curso.errors }}
             </div>
           </div>
-          
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data Realizada da Prova</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ano <span class="required">*</span>
+            </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+              {{ form.ano }} {{ form.ano.errors }}
             </div>
+
           </div>
 
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Semestre<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.semestre }} {{ form.semestre.errors }}
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Disciplina <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.disciplina }} {{ form.disciplina.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nota <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.nota }} {{ form.nota.errors }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Data Realizada <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {{ form.data_realizada }} {{ form.data_realizada.errors }}
+            </div>
+          </div>
 
 
           <div class="ln_solid"></div>
@@ -44,7 +72,7 @@
               <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
           </div>
-             {% endautoescape %}
+          {% endautoescape %}
         </form>
       </div>
     </div>

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from django.utils import timezone
-
+from datetime import date
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'biblioteca',
     'helper',
     'sweetify',
+    'utilizador',
+    'arquivos',
+    'informacao_forum'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +85,7 @@ WSGI_APPLICATION = 'SERVICO_PARTILHA_INTRANET_U_O_R.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oscar_ribas',
+        'NAME': 'bd_gestaoAcademica',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
@@ -115,8 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-
-LANGUAGE_CODE = 'pt-PT'
+\
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -137,11 +140,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 #STATIC_ROOT = '{}/static'.format(BASE_DIR)
 MEDIA_ROOT = '{}/media'.format(BASE_DIR)
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
 
+
 DATA_HORA_ZONA = timezone.now()
+DATE_FORMAT = date.today()
+DATA_ANO = timezone.now().year
+DATA_MES = timezone.now().month
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']

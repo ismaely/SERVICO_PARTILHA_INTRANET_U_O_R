@@ -9,7 +9,7 @@
       </div>
       <div class="x_content">
         <br />
-        <form id=""  class="form-horizontal form-label-left" action="{% url 'secretaria:registar-tema-monografia' %}" method="post">
+        <form id="" class="form-horizontal form-label-left" action="{% url 'secretaria:registar-tema-monografia' %}" method="post">
           {% csrf_token %} {% autoescape on %}
 
           <div class="form-group">
@@ -23,7 +23,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Curso<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.curso }} {{ form.curso.errors }}
+              {{ form.curso }} {{ form.curso.errors }}
             </div>
           </div>
           <div class="form-group">
@@ -34,13 +34,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Número de Alunos <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.numero_alunos }} {{ form.numero_alunos.errors }}
-            </div>
-          </div>
           <div class="form-group">
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Data</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -56,7 +49,7 @@
               <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
           </div>
-             {% endautoescape %}
+          {% endautoescape %}
         </form>
       </div>
     </div>

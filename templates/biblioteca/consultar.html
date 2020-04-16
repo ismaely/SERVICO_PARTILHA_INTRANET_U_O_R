@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+
+<div class="row">
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Consultar Obras<small> </small></h2>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+        <form class="form-horizontal form-label-left" action="{% url 'biblioteca:consultar' %}" method="post">
+          {% csrf_token %} {% autoescape on %}
+          <div class="form-group">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8">
+              <label class=" control-label">Titulo / Autor</label>
+              <div class="input-group">
+                {{ form.nome }} {{ form.nome.errors }}
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary">Consultar!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="divider-dashed"></div>
+          {% endautoescape %}
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+
+</div>
+</div>
+
+{% endblock %}

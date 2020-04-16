@@ -7,6 +7,9 @@
 
 $('#id_categoria').click(troca_categoria);
 $('#id_provincia').click(validar_provinciaBi);
+$('#dificiencia_ajax').click(funcao_especifica_dificiencia);
+
+
 
 if($('#id_categoria').val() == "DOCENTE") {
     document.getElementById('cat_docente').style.display = '';
@@ -17,6 +20,11 @@ if($('#id_categoria').val() == "ESTUDANTE") {
 if($('#id_categoria').val() == "EFUNCIONARIO") {
     document.getElementById('cat_funcionario').style.display = '';
 }
+
+if ($('#dificiencia_ajax').val() == "Sim") {
+    document.getElementById('especifica_dificiencia_id').style.display = '';
+}
+
 
 //mascar de inicalização do bi
 $("input.bi_mask").mask("999999999LA999");
@@ -43,18 +51,165 @@ function troca_categoria (){
 
 }
 
-// função que seleciona a provincia e atrbui a sigla da provincia no campo de BI
-function validar_provinciaBi(){
 
+
+//função que vai mostra o campo para especifica a dificiencia
+function funcao_especifica_dificiencia (){
+    if ($('#dificiencia_ajax').val() == "Sim") {
+         document.getElementById('especifica_dificiencia_id').style.display = '';
+     }
+     if ($('#dificiencia_ajax').val() == "Não") {
+         document.getElementById('especifica_dificiencia_id').style.display = 'none';
+
+      }
+
+}
+
+
+// função vai trazr as disciplina de curso qdo estiver a lançar a nota
+$('.ajax_curso_nota').click(function () {
+
+  var nova_escolhas = document.getElementById("id_disciplina");
+  if($('.ajax_curso_nota').val() > 0 && $('.ajax_ano_nota').val() > 0 && $('.ajax_semestre_nota').val() > 0){
+  $.ajax({
+      url: '/secretaria/ajax_cursoID_anoID_retorna_disciplinas/',
+      type: 'POST',
+      data: JSON.stringify({
+         'curso': $('.ajax_curso_nota').val(),
+          'ano': $('.ajax_ano_nota').val(),
+          'semestre': $('.ajax_semestre_nota').val() }),
+
+      dataType: 'json',
+      headers: {
+          'X-CSRFToken': getCookie('csrftoken'),
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      success: function (data) {
+
+          while (nova_escolhas.options.length) {
+              nova_escolhas.remove(0);
+          }
+          for (let k = 0; k < data.resposta.length; k++) {
+              var resp = data.resposta[k];
+              var novos = new Option(resp[1], resp[0]);
+              nova_escolhas.options.add(novos)
+          }
+      },
+      error: function () {
+          console.log('erro interno')
+      }
+  });
+  }else{
+
+  while (nova_escolhas.options.length) {
+      nova_escolhas.remove(0);
+       }
+ }
+
+});
+
+
+// quando selecionar o ano, para atribuição da nota
+$('.ajax_ano_nota').click(function () {
+
+  var nova_escolhas = document.getElementById("id_disciplina");
+  if($('.ajax_curso_nota').val() > 0 && $('.ajax_ano_nota').val() > 0 && $('.ajax_semestre_nota').val() > 0){
+  $.ajax({
+      url: '/secretaria/ajax_cursoID_anoID_retorna_disciplinas/',
+      type: 'POST',
+      data: JSON.stringify({
+         'curso': $('.ajax_curso_nota').val(),
+          'ano': $('.ajax_ano_nota').val(),
+          'semestre': $('.ajax_semestre_nota').val() }),
+
+      dataType: 'json',
+      headers: {
+          'X-CSRFToken': getCookie('csrftoken'),
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      success: function (data) {
+
+          while (nova_escolhas.options.length) {
+              nova_escolhas.remove(0);
+          }
+          for (let k = 0; k < data.resposta.length; k++) {
+              var resp = data.resposta[k];
+              var novos = new Option(resp[1], resp[0]);
+              nova_escolhas.options.add(novos)
+          }
+      },
+      error: function () {
+          console.log('erro interno')
+      }
+  });
+   }else{
+
+  while (nova_escolhas.options.length) {
+      nova_escolhas.remove(0);
+       }
+ }
+
+});
+
+
+
+// quando selecionar o semestre para atrbuir a nota
+$('.ajax_semestre_nota').click(function () {
+
+  var nova_escolhas = document.getElementById("id_disciplina");
+  if($('.ajax_curso_nota').val() > 0 && $('.ajax_ano_nota').val() > 0 && $('.ajax_semestre_nota').val() > 0){
+  $.ajax({
+      url: '/secretaria/ajax_cursoID_anoID_retorna_disciplinas/',
+      type: 'POST',
+      data: JSON.stringify({
+         'curso': $('.ajax_curso_nota').val(),
+          'ano': $('.ajax_ano_nota').val(),
+          'semestre': $('.ajax_semestre_nota').val() }),
+
+      dataType: 'json',
+      headers: {
+          'X-CSRFToken': getCookie('csrftoken'),
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      success: function (data) {
+
+          while (nova_escolhas.options.length) {
+              nova_escolhas.remove(0);
+          }
+          for (let k = 0; k < data.resposta.length; k++) {
+              var resp = data.resposta[k];
+              var novos = new Option(resp[1], resp[0]);
+              nova_escolhas.options.add(novos)
+          }
+      },
+      error: function () {
+          console.log('erro interno')
+      }
+  });
+ }else{
+
+  while (nova_escolhas.options.length) {
+      nova_escolhas.remove(0);
+       }
+ }
+
+});
+
+
+
+// função que seleciona a provincia e atrbui a sigla da provincia no campo de BI
+
+function validar_provinciaBi(){
     for (var i = 0; i < vetor_provincia.length; i++) {
         if ($('#id_provincia').val() == vetor_provincia[i]) {
              $("input.bi_mask").mask(mascara_bi[i]);
               break;
             return true;
         }
-
     }
-
     $.ajax({
 
         url:  '/secretaria/municipio_retorna/',
@@ -70,19 +225,17 @@ function validar_provinciaBi(){
             for (let k = 0; k < data.dados.length; k++) {
                 var lista = new Option(data.dados[k], data.dados[k]);
                 municipio.options.add(lista);
-
             }
-
         },
         error: function(e){
            console.log(e);
         }
-
     });
-
    }
 
-    function getCookie(name) {
+
+
+  function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             var cookies = document.cookie.split(';');

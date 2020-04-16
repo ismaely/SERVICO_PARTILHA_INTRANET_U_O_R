@@ -3,69 +3,73 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Cadastrar Livro</h2>
+        <h2>Cadastrar Obra</h2>
 
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2"  class="form-horizontal form-label-left" action="{% url 'biblioteca:cadastrar-livro' %}" method="post">
-          {% csrf_token %} {% autoescape on %}
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nome do Autor<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.autor }} {{ form.autor.errors }}
+        {% if pk %}
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'biblioteca:atualizar-obra' pk %}" method="post">
+          {% else %}
+          <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'biblioteca:cadastrar-obra' %}" method="post">
+            {% endif %}
+            {% csrf_token %} {% autoescape on %}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nome do Autor<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.autor }} {{ form.autor.errors }}
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Titulo do Livro<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.titulo }} {{ form.titulo.errors }}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Titulo da Obra<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.titulo }} {{ form.titulo.errors }}
+              </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Categoria<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.nome }} {{ form.nome.errors }}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Categoria<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.nome }} {{ form.nome.errors }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Número de Pagina<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.numero_pagina }} {{ form.numero_pagina.errors }}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Número de Pagina<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.numero_pagina }} {{ form.numero_pagina.errors }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ISBN<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.isbn }} {{ form.isbn.errors }}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ISBN<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.isbn }} {{ form.isbn.errors }}
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Data de Entrada<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.data_entrada }} {{ form.data_entrada.errors }}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Data de Entrada<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.data_entrada }} {{ form.data_entrada.errors }}
+              </div>
             </div>
-          </div>
 
 
-          <div class="ln_solid"></div>
-          <div class="form-group">
-            <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-5">
-              <button type="reset" class="btn btn-primary">CANCELAR</button>
-              <button type="submit" class="btn btn-success">SALVAR</button>
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-5">
+                <button type="reset" class="btn btn-primary">CANCELAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
+              </div>
             </div>
-          </div>
-             {% endautoescape %}
-        </form>
+            {% endautoescape %}
+          </form>
       </div>
     </div>
   </div>

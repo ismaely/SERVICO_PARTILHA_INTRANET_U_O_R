@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+
+<div class="" role="main">
+
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Perfil</h3>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_content">
+            <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+              <div class="profile_img">
+                <!-- end of image cropping -->
+                <div id="crop-avatar">
+                  <!-- Current avatar -->
+                  <div class="avatar-view" title="Change the avatar">
+                    <img src="{% static 'images/principal.JPG' %}" alt="Avatar">
+                  </div>
+
+                  <!-- /.modal -->
+
+                  <!-- Loading state -->
+                  <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+                </div>
+                <!-- end of image cropping -->
+
+              </div>
+              <h5> Nome: <strong>{{ resp.aluno.pessoa.nome }} </strong> </5>
+
+                <ul class="list-unstyled user_data">
+                  <li><i class="fa fa-map-marker user-profile-icon"></i> Nª: {{ resp.aluno.numero_estudante }}
+                  </li>
+
+                  <li>
+                    <i class="fa fa-briefcase user-profile-icon"></i> Curso: {{ resp.curso.nome }}
+                  </li>
+
+                </ul>
+                <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                <br />
+            </div>
+
+
+            <div class="col-md-9 col-sm-9 col-xs-12">
+              <div class="col-md-6">
+                <h2>Notas Descrminadas</h2>
+              </div>
+              <div class="col-md-12">
+
+                <!-- start user projects -->
+                <table class="data table table-striped no-margin">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Discipina</th>
+                      <th>Nota</th>
+                      <th class="">Descrição</th>
+                      <th class="hidden-phone">Progresso</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {% for dados in lista %}
+                    <tr>
+                      <td class=" "> {{ dados.id }}</td>
+                      <td class=" "> {{ dados.disciplina.nome }}</td>
+                      <td class="">{{ dados.nota }}</td>
+                      <td class=" ">{{ dados.descricao.nome }}</td>
+
+
+                      {% if dados.nota <= '9' %}
+                      <td class="vertical-align-mid">
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-danger" data-transitiongoal="13"></div>
+                        </div>
+                      </td>
+                      {% endif %}
+
+                      {% if dados.nota >= '10' and dados.nota <= '15' %}
+                      <td class="project_progress">
+                        <div class="progress progress_sm">
+                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                        </div>
+                      </td>
+                      {% endif %}
+
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

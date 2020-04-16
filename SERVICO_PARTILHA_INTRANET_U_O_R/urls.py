@@ -19,7 +19,10 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('secretaria.urls')),
-    path('biblioteca', include('biblioteca.urls')),
+    #path('admin/', admin.site.urls),
+    path('', include('utilizador.urls')),
+    path('secretaria/', include('secretaria.urls')),
+    path('biblioteca/', include('biblioteca.urls')),
+    path('arquivos/', include('arquivos.urls')),
+    path('informacao_forum/', include('informacao_forum.urls')),
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

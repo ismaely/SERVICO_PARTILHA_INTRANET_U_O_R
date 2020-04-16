@@ -9,7 +9,7 @@
       </div>
       <div class="x_content">
         <br />
-        <form id="demo-form2"  class="form-horizontal form-label-left" action="{% url 'secretaria:registar-reclamacao' %}" method="post">
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'secretaria:registar-reclamacao' %}" method="post">
           {% csrf_token %} {% autoescape on %}
 
           <div class="form-group">
@@ -30,15 +30,15 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Motivo<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.motivo }} {{ form.motivo.errors }}
+              {{ form.motivo }} {{ form.motivo.errors }}
             </div>
           </div>
-        
+
 
           <div class="form-group">
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Descrição da Reclamação</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            {{ form.descricao }} {{ form.descricao.errors }}
+              {{ form.descricao }} {{ form.descricao.errors }}
             </div>
           </div>
 
@@ -49,7 +49,7 @@
               <button type="submit" class="btn btn-success">SALVAR</button>
             </div>
           </div>
-             {% endautoescape %}
+          {% endautoescape %}
         </form>
       </div>
     </div>

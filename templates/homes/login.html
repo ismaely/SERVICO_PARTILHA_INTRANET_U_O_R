@@ -1,41 +1,35 @@
 {% extends 'base_login.html' %} {% block corpo%} {% load static %}
-
 <div class="">
+  <div id="wrapper">
+    <div id="login" class="animate form">
 
-        <div id="wrapper">
-            <div id="login" class="animate form">
-                    <div class="profile">
-                 <img src="{% static 'images/uor.png' %}" alt="..." class="img-circle profile_img">
-               </div>
-                <section class="login_content">
-                    <form>
-
-                       <p></p>
-                        <div class="clearfix">
-
-                        </div>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
-                        </div>
-                        <div class="">
-                            <button type="submit"  class="btn btn-success btn-lg col-md-12" name="button">Login</button>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                        </div>
-                    </form>
-                    <!-- form -->
-                </section>
-                <!-- content -->
-            </div>
-         </div>
- </div>
+      <div class="profile">
+        <img src="{% static 'images/logo_1.png' %}" alt="..." class="img-circle profile_img">
+      </div>
+      <section class="login_content">
+        <form action="{% url 'utilizador:login' %}" method="post">
+          {% csrf_token %} {% autoescape on %}
+          <p></p>
+          <div class="clearfix">
+          </div>
+          <div>
+            {{ form.nome_utilizador }} {{ form.nome_utilizador.errors }}
+          </div>
+          <div>
+            {{ form.senha }} {{ form.senha.errors }}
+          </div>
+          <div class="">
+            <button type="submit" class="btn btn-success btn-lg col-md-12" name="button">Login</button>
+          </div>
+          <div class="clearfix"></div>
+          <div class="separator">
+            <div class="clearfix"></div>
+            <br />
+          </div>
+          {% endautoescape %}
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
 {% endblock %}

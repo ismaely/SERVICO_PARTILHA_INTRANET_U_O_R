@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Solicitar uma obra</h2>
+
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        {% if pk %}
+        <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'biblioteca:atualizar-obra-solicitada' pk %}" method="post">
+          {% else %}
+          <form id="demo-form2" class="form-horizontal form-label-left" action="{% url 'biblioteca:solicitacao_obra' %}" method="post">
+            {% endif %}{% csrf_token %} {% autoescape on %}
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">B.I Nº <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.aluno }} {{ form.aluno.errors }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nome do Autor <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.autor }} {{ form.autor.errors }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Titulo do Livro <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.titulo }} {{ form.titulo.errors }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Categoria <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.categoria }} {{ form.categoria.errors }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantidade <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.quantidade }} {{ form.quantidade.errors }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Data de Entrada<span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                {{ form.data_entrada }} {{ form.data_entrada.errors }}
+              </div>
+            </div>
+
+
+            <div class="ln_solid"></div>
+            <div class="form-group">
+              <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-5">
+                <button type="reset" class="btn btn-primary">CANCELAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
+              </div>
+            </div>
+            {% endautoescape %}
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

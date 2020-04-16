@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block corpo%} {% load static %}
+
+<div class="row">
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Lista de utilizador do sistema<small> </small></h2>
+
+        <div class="clearfix"></div>
+      </div>
+
+
+      <div class="x_content">
+        <table id="example" class="table table-striped responsive-utilities jambo_table">
+          <thead>
+            <tr class="headings">
+
+              <th>Nome</th>
+              <th>Genero</th>
+              <th>User</th>
+              <th>Telefone</th>
+              <th>Estado</th>
+              <th class=" no-link last"><span class="nobr">Opções</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for dados in lista %}
+            <tr class="even pointer">
+              <td class=" ">{{ dados.pessoa.nome }}</td>
+              <td class=" ">{{ dados.pessoa.genero }}</td>
+              <td class=" ">{{ dados.user.username }}</td>
+              <td class=" ">{{ dados.pessoa.telefone }}</td>
+              {% if dados.user.is_active == 1 %}
+              <td>
+                <div class="alert alert-success " role="alert">
+                  <strong>
+                    Ativado
+                  </strong>
+                </div>
+              </td>
+              {% else %}
+              <td>
+                <div class="alert alert-danger " role="alert">
+                  <strong>
+                    Desativado
+                  </strong>
+                </div>
+              </td>
+
+              {% endif %}
+              <td class=" last">
+                <div class="col-md-12  btn-group">
+                  <button data-toggle="dropdown" class="col-md-12 btn btn-primary dropdown-toggle" type="button"> OPÇÕES <span class="caret"></span> </button>
+                  <ul class="dropdown-menu">
+                    {% if dados.user.is_active == 0 %}
+                    <li><a href="{% url 'utilizador:ativar' dados.user.id %}" class="btn btn-primary">ATIVAR CONTA</a>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'utilizador:desativar' dados.user.id %}" class="btn btn-warning">DESATIVAR CONTA</a>
+                    </li>
+                    {% endif %}
+                    <li><a href="{% url 'utilizador:eliminar_conta' dados.user.id %}" class="btn btn-danger">ELIMINAR</a>
+                    </li>
+                    <li><a href="" class="btn btn-success">REDEFINIR A SENHA</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+</div>
+</div>
+
+{% endblock %}

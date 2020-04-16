@@ -9,18 +9,15 @@
 
         <div class="clearfix"></div>
       </div>
-
-
       <div class="x_content">
         <table id="example" class="table table-striped responsive-utilities jambo_table">
           <thead>
             <tr class="headings">
-
               <th>Autor</th>
               <th>Titulo</th>
               <th>Categoria</th>
               <th>ISBN</th>
-              <th>Número de Entrada</th>
+              <th>Nº de Pagina</th>
               <th>Data</th>
               <th class=" no-link last"><span class="nobr">Opções</span>
               </th>
@@ -32,7 +29,6 @@
             {% autoescape on %}
 
             <tr class="even pointer">
-
               <td class=" ">{{ dados.autor|upper }}</td>
               <td class=" ">{{ dados.titulo|upper|truncatechars:40 }}</td>
               <td class=" ">{{ dados.nome.nome|upper }}</td>
@@ -44,11 +40,11 @@
                 <div class="col-md-12  btn-group">
                   <button data-toggle="dropdown" class="col-md-12 btn btn-primary dropdown-toggle" type="button"> OPÇÕES <span class="caret"></span> </button>
                   <ul class="dropdown-menu">
-                    <li><a href=">" class="btn btn-primary">EMPRESTAR</a>
+                    <li><a href="" class="btn btn-primary">EMPRESTAR</a>
                     </li>
-                    <li><a href=">" class="btn btn-danger">CANCELAR</a>
+                    <li><a href="{% url 'biblioteca:eliminar-obra' dados.id %}" class="btn btn-danger">ELIMINAR</a>
                     </li>
-                    <li><a href="" class="btn btn-success">ATUALIZAR</a>
+                    <li><a href="{% url 'biblioteca:atualizar-obra' dados.id %}" class="btn btn-success">ATUALIZAR</a>
                     </li>
 
                   </ul>
